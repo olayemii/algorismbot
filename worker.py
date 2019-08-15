@@ -2,7 +2,7 @@ from datetime import datetime
 import time
 import bot
 
-
+print("Hello World")
 def worker():
     bot_obj = bot.Bot("#random")
     while True:

@@ -7,7 +7,7 @@ class Scraper:
     def __init__(self):
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
-        self.driver = webdriver.Chrome("C:\\chromedriver.exe", options=options)
+        self.driver = webdriver.Chrome(options=options)
 
     def get_articles(self, url="http://www.dev.to"):
         self.driver.get(url)

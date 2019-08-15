@@ -1,9 +1,6 @@
 from selenium import webdriver
 import random
-# slack_client.chat_postMessage(channel="#random", text="Hello Chat Bot")
-# print(slack_client.im_list(channel="#random"))
 
-# html = requests.get("https://www.dev.to", )
 
 
 class Scraper:

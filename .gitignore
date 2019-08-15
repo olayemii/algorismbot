@@ -1,3 +1,4 @@
 geckodriver.log
 .env
 __pycache__/
+.idea/

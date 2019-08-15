@@ -2,7 +2,6 @@ from selenium import webdriver
 import random
 
 
-
 class Scraper:
     def __init__(self):
         options = webdriver.ChromeOptions()

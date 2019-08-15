@@ -19,7 +19,7 @@ def worker():
             bot_obj.remind_stand_up()
         elif date_today.tm_wday in range(0, 5) and date_today.tm_hour in (11, 12):
             bot_obj.remind_break(date_today.tm_min, date_today.tm_hour)
-        elif date_today.tm_wday in range(0, 5) and (date_today.tm_hour, date_today.tm_min) == (13, 30):
+        elif date_today.tm_wday in range(0, 5) and (date_today.tm_hour, date_today.tm_min) == (13, 45):
             bot_obj.post_tip()
 
         # Making sure the interval is 15 mins but sleep all weekend

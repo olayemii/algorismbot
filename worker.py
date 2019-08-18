@@ -15,7 +15,6 @@ def worker():
 
         print(f"{date_today.tm_hour, date_today.tm_min} Making a new check cause it's a 15 mins interval")
 
-        bot_obj.post_tip()
         # Check for Friday show and tell
         if (date_today.tm_wday, date_today.tm_hour, date_today.tm_min) == (4, 16, 0):
             bot_obj.remind_show_and_tell()

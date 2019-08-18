@@ -8,14 +8,13 @@ from dotenv import load_dotenv
 def worker():
     load_dotenv()
     bot_obj = bot.Bot(os.getenv("CHANNEL"))
+
     while True:
 
         date_today = datetime.now().timetuple()
 
         print(f"{date_today.tm_hour, date_today.tm_min} Making a new check cause it's a 15 mins interval")
-        bot_obj.remind_show_and_tell()
         # Check for Friday show and tell
-        bot_obj.post_tip()
         if (date_today.tm_wday, date_today.tm_hour, date_today.tm_min) == (4, 16, 0):
             bot_obj.remind_show_and_tell()
         elif (date_today.tm_wday, date_today.tm_hour, date_today.tm_min) == (0, 9, 0):

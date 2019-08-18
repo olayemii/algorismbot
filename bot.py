@@ -20,7 +20,6 @@ class Bot:
     def _post_message(self, text):
         self.slack_client.chat_postMessage(channel=self.channel, text=text)
 
-
     def remind_show_and_tell(self):
         """
         Reminds show and tell when the action is dispatched
@@ -52,6 +51,15 @@ class Bot:
 
     def remind_work(self):
         self._post_message('*[HELLO]* Do something good with time, dont just let it get wasted, live & code :grinning:')
+
+    def remind_break(self, minute, hour):
+        if hour == 11:
+            if minute in (30, 45):
+                self._post_message(f"{60 - minute} minutes to break")
+
+        elif hour == 12:
+            if minute == 0:
+                self._post_message("It's time for break, see you in an hour!")
 
     def post_tip(self):
         """

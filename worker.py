@@ -14,7 +14,6 @@ def worker():
         date_today = datetime.now().timetuple()
 
         print(f"{date_today.tm_hour, date_today.tm_min} Making a new check cause it's a 15 mins interval")
-        bot_obj.test_mention()
 
         # Check for Friday show and tell
         if (date_today.tm_wday, date_today.tm_hour, date_today.tm_min) == (4, 16, 0):

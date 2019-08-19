@@ -24,7 +24,7 @@ def worker():
             bot_obj.remind_stand_up()
         elif date_today.tm_wday in range(0, 5) and date_today.tm_hour in (11, 12):
             bot_obj.remind_break(date_today.tm_hour, date_today.tm_min)
-        elif date_today.tm_wday in range(0, 5) and (date_today.tm_hour, date_today.tm_min) == (12, 20):
+        elif date_today.tm_wday in range(0, 5) and (date_today.tm_hour, date_today.tm_min) == (13, 0):
             bot_obj.post_tip()
         elif date_today.tm_wday == 0 and (date_today.tm_hour, date_today.tm_min) == (10, 0):
             bot_obj.remind_work()

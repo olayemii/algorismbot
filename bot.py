@@ -46,7 +46,7 @@ class Bot:
 
     def test_mention(self):
         print("working...")
-        self._post_message(" <!everyone> Hello World ")
+        self._post_message(" <!channel> Hello World ")
 
     def remind_break(self, minute, hour):
         if hour == 11:

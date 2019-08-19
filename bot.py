@@ -42,12 +42,12 @@ class Bot:
         self._post_message("*@channel [REMINDER]* It's time for daily stand up")
 
     def remind_work(self):
-        self._post_message('*[HELLO]* @channel, Do something good with time, dont just let it get wasted, live & code :grinning:')
+        self._post_message('*[HELLO]* @channel , Do something good with time, dont just let it get wasted, live & code :grinning:')
 
     def remind_break(self, minute, hour):
         if hour == 11:
             if minute in (30, 45):
-                self._post_message(f"@channel {60 - minute} minutes to break")
+                self._post_message(f" @channel {60 - minute} minutes to break")
 
         elif hour == 12:
             if minute == 0:

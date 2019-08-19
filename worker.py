@@ -30,6 +30,7 @@ def worker():
             bot_obj.remind_work()
 
         # Making sure the interval is 15 mins but sleep all weekend
+
         if date_today.tm_wday == 4 and date_today.tm_hour == 18:
             sleep_time = 194400
         elif date_today.tm_min == 0 or (15 % date_today.tm_min == 0 and date_today.tm_min > 1):

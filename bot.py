@@ -45,7 +45,8 @@ class Bot:
         self._post_message('*[HELLO]* @channel , Do something good with time, dont just let it get wasted, live & code :grinning:')
 
     def test_mention(self):
-        self._post_message(" @channel ")
+        print("working...")
+        self._post_message(" @channel Hello World ")
 
     def remind_break(self, minute, hour):
         if hour == 11:

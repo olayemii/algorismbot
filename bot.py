@@ -25,6 +25,7 @@ class Bot:
         Reminds show and tell when the action is dispatched
         :return: None
         """
+        print("Posting show and tell reminder")
         self._post_message("*[REMINDER]* <!channel>, It's time for show and tell, let's meet at the board room.")
 
     def remind_monday_meeting(self):
@@ -32,6 +33,7 @@ class Bot:
         Remind friday meeting
         :return: None
         """
+        print("Posting monday reminder")
         self._post_message("*[REMINDER]* <!channel>, It's time for weekly progress meeting")
 
     def remind_stand_up(self):
@@ -42,10 +44,11 @@ class Bot:
         self._post_message("* <!channel> [REMINDER]* It's time for daily stand up")
 
     def remind_work(self):
+        print("Posting work reminder")
         self._post_message('*[HELLO]* <!channel> , Do something good with time, dont just let it get wasted, live & code :grinning:')
 
-
-    def remind_break(self, minute, hour):
+    def remind_break(self, hour, minute):
+        print("Posting break reminder")
         if hour == 11:
             if minute in (30, 45):
                 self._post_message(f" <!channel> {60 - minute} minutes to break")
@@ -59,7 +62,7 @@ class Bot:
         DevTo or Medium API sends a post daily here
         :return:
         """
-        print("Posting message to slack now...")
+        print("Posting tip to slack now...")
         message = "***TIPS FOR TODAY*** \n\n\n\n"
         scraper_obj = scraper.Scraper()
         for article in scraper_obj.get_articles():

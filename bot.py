@@ -25,41 +25,33 @@ class Bot:
         Reminds show and tell when the action is dispatched
         :return: None
         """
-        self._post_message("*[REMINDER]* It's time for show and tell, let's meet at the board room.")
+        self._post_message("*[REMINDER]* @channel, It's time for show and tell, let's meet at the board room.")
 
     def remind_monday_meeting(self):
         """
         Remind friday meeting
         :return: None
         """
-        self._post_message("*[REMINDER]* It's time for weekly progress meeting")
+        self._post_message("*[REMINDER]* @channel, It's time for weekly progress meeting")
 
     def remind_stand_up(self):
         """
         Remind every day stand up
         :return: None
         """
-        self._post_message("*[REMINDER]* It's time for daily stand up")
-
-    def remind_break(self, hour, minute):
-        if hour == 11:
-            if minute in (30, 45):
-                self._post_message(f"*[REMINDER]* {60 - minute} minutes to break")
-        elif hour == 12:
-            if minute == 0:
-                self._post_message("*[REMINDER]* It's time for break, see you in an hour!")
+        self._post_message("*@channel [REMINDER]* It's time for daily stand up")
 
     def remind_work(self):
-        self._post_message('*[HELLO]* Do something good with time, dont just let it get wasted, live & code :grinning:')
+        self._post_message('*[HELLO]* @channel, Do something good with time, dont just let it get wasted, live & code :grinning:')
 
     def remind_break(self, minute, hour):
         if hour == 11:
             if minute in (30, 45):
-                self._post_message(f"{60 - minute} minutes to break")
+                self._post_message(f"@channel {60 - minute} minutes to break")
 
         elif hour == 12:
             if minute == 0:
-                self._post_message("It's time for break, see you in an hour!")
+                self._post_message(" @channel It's time for break, see you in an hour!")
 
     def post_tip(self):
         """
@@ -71,7 +63,7 @@ class Bot:
         scraper_obj = scraper.Scraper()
         for article in scraper_obj.get_articles():
             message += f"{article['title']} \n {article['link']} \n\n"
-        message += "\n\n\n\n\n\n\n:heart::slightly_smiling_face:  *I am algorismbot, a simple rule" \
+        message += "\n\n\n\n\n\n\n @channel :heart::slightly_smiling_face:  *I am algorismbot, a simple rule" \
                    " based bot, my code lives here: * https://github.com/olayemii/algorismbot " \
                    ":heart::slightly_smiling_face: "
         self._post_message(message)

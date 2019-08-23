@@ -2,3 +2,5 @@ geckodriver.log
 .env
 __pycache__/
 .idea/
+./token.pickle
+./credentials.json

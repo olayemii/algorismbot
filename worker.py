@@ -21,7 +21,7 @@ def worker():
             bot_obj.remind_monday_meeting(date_today.tm_hour, date_today.tm_min)
         elif everyday and (date_today.tm_hour, date_today.tm_min) == (9, 30):
             bot_obj.remind_stand_up()
-        elif everyday and date_today.tm_hour in (11, 12):
+        elif everyday and date_today.tm_hour in (11, 12) and date_today.tm_min in (30, 45, 0):
             bot_obj.remind_break(date_today.tm_hour, date_today.tm_min)
         elif everyday and (date_today.tm_hour, date_today.tm_min) == (13, 0):
             bot_obj.post_tip()

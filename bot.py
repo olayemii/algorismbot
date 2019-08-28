@@ -84,7 +84,7 @@ class Bot:
         scraper_obj = scraper.Scraper()
         for article in scraper_obj.get_articles():
             message += f"{article['title']} \n {article['link']} \n\n"
-        message += "\n\n\n\n\n\n\n <!channel> :heart::slightly_smiling_face:  *I am algorismbot, a simple rule" \
+        message += "\n\n\n\n\n\n\n <!channel> :heart::slightly_smiling_face:  *I am Dele, a simple rule" \
                    " based bot, my code lives here: * https://github.com/olayemii/algorismbot " \
                    ":heart::slightly_smiling_face: "
         self._post_message(message)

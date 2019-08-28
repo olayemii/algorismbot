@@ -13,7 +13,7 @@ def worker():
         date_today = datetime.now().timetuple()
         everyday = date_today.tm_wday in range(0, 5);
         print(f"{date_today.tm_hour, date_today.tm_min} Making a new check cause it's a 15 mins interval")
-
+        bot_obj._post_message("So good to have a name of my own :smiley: ")
         # Check for Friday show and tell
         if date_today.tm_wday == 4 and date_today.tm_hour in (15, 16) and date_today.tm_min in (30, 45, 0):
             bot_obj.remind_show_and_tell(date_today.tm_hour, date_today.tm_min)

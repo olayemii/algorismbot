@@ -29,7 +29,7 @@ def worker():
             bot_obj.remind_work()
         # elif everyday and date_today.tm_min == 0 and date_today.tm_hour % 2 == 0:
         #     bot.Bot.post_google_form_tip()
-        elif date_today.tm_wday == 2 and date_today.tm_hour in (14, 15) and date_today.tm_min in (30, 45,0):
+        elif date_today.tm_wday == 2 and date_today.tm_hour in (14, 15) and date_today.tm_min in (30, 45, 0):
             bot_obj.remind_skillshare(date_today.tm_hour, date_today.tm_min)
         # Making sure the interval is 15 mins but sleep all weekend
 

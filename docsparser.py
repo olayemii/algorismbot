@@ -10,7 +10,7 @@ import random
 class DocParser:
     def __init__(self):
         dotenv.load_dotenv()
-        self.scope  = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+        self.scope = ['https://www.googleapis.com/auth/spreadsheets.readonly']
         self.result = None
         self.auth_api()
 
@@ -39,6 +39,7 @@ class DocParser:
         sheet = service.spreadsheets()
         result = sheet.values().get(spreadsheetId=os.getenv("SAMPLE_SPREADSHEET_ID"), range=os.getenv("SPREADSHEET_COLUMN")).execute()
         self.result = result.get("values", [])
+
     def return_tip(self):
         random.shuffle(self.result)
         return self.result[0][0]

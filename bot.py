@@ -17,9 +17,7 @@ class Bot:
         except ClientConnectorError as e:
             print(f"Error connecting with slack {e.strerror}")
             # exit(1)
-
-    def say_hello(self):
-        self._post_message(text="Hello to you too")
+        self.slack_client.chat_postMessage(channel=self.channel, text="We good?")
 
     def _post_message(self, text):
         self.slack_client.chat_postMessage(channel=self.channel, text=text)

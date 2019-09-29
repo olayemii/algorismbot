@@ -37,7 +37,7 @@ class S(BaseHTTPRequestHandler):
         self.wfile.write(bytes(body['challenge'], encoding='utf-8'))
 
 
-with socketserver.TCPServer(("", 80), S) as httpd:
+with socketserver.TCPServer(("", 8000), S) as httpd:
     print("Server up . .. ")
     httpd.serve_forever()
 

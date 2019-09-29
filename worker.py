@@ -3,15 +3,59 @@ import time
 import bot
 import os
 from dotenv import load_dotenv
+import slack
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import socketserver
+import json
+
+
+class S(BaseHTTPRequestHandler):
+    def _set_headers(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+
+    def _html(self, message):
+        """This just generates an HTML document that includes `message`
+        in the body. Override, or re-write this do do more interesting stuff.
+        """
+        content = f"<html><body><h1>{message}</h1></body></html>"
+        return content.encode("utf8")  # NOTE: must return a bytes object!
+
+    def do_GET(self):
+        self._set_headers()
+        self.wfile.write(self._html("hi!"))
+
+    def do_HEAD(self):
+        self._set_headers()
+
+    def do_POST(self):
+        # Doesn't do anything with posted data
+        self._set_headers()
+        data_string = self.rfile.read(int(self.headers['Content-Length']))
+        body = json.loads(data_string)
+        self.wfile.write(bytes(body['challenge'], encoding='utf-8'))
+
+
+with socketserver.TCPServer(("", 8000), S) as httpd:
+    print("Server up . .. ")
+    httpd.serve_forever()
+
+bot_obj = bot.Bot(os.getenv("CHANNEL"))
+
+
+@slack.RTMClient.run_on(event="app_mention")
+def say_hello():
+    bot_obj.say_hello()
 
 
 def worker():
     load_dotenv()
-    bot_obj = bot.Bot(os.getenv("CHANNEL"))
 
     while True:
         date_today = datetime.now().timetuple()
-        everyday = date_today.tm_wday in range(0, 5);
+        everyday = date_today.tm_wday in range(0, 5)
+
         print(f"{date_today.tm_hour, date_today.tm_min} Making a new check cause it's a 15 mins interval")
         # bot_obj._post_message("So good to have a name of my own :smiley: ")
         # Check for Friday show and tell

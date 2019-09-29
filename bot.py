@@ -5,6 +5,7 @@ from aiohttp.client_exceptions import ClientConnectorError
 import scraper
 import docsparser
 
+
 class Bot:
     def __init__(self, channel):
         load_dotenv()
@@ -16,6 +17,9 @@ class Bot:
         except ClientConnectorError as e:
             print(f"Error connecting with slack {e.strerror}")
             # exit(1)
+
+    def say_hello(self):
+        self._post_message(text="Hello to you too")
 
     def _post_message(self, text):
         self.slack_client.chat_postMessage(channel=self.channel, text=text)
@@ -38,7 +42,8 @@ class Bot:
         """
         print("Posting monday reminder")
         if hour == 9 and min == 0:
-            self._post_message("*[REMINDER]* <!channel>, It's time for weekly progress meeting, let's meet at the board room.")
+            self._post_message("*[REMINDER]* <!channel>, It's time for weekly progress meeting,"
+                               " let's meet at the board room.")
         elif hour == 8:
             self._post_message(f"*[REMINDER]* <!channel>, {60 - min} minutes to weekly progress minute")
 
@@ -84,6 +89,7 @@ class Bot:
         scraper_obj = scraper.Scraper()
         for article in scraper_obj.get_articles():
             message += f"{article['title']} \n {article['link']} \n\n"
+
         message += "\n\n\n\n\n\n\n <!channel> :heart::slightly_smiling_face:  *I am Dele, a simple rule" \
                    " based bot, my code lives here: * https://github.com/olayemii/algorismbot " \
                    ":heart::slightly_smiling_face: "

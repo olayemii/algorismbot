@@ -1,1 +1,1 @@
-"# algorismbot" 
+Dele bot
